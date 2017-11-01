@@ -38,23 +38,22 @@
             }
         }
 
-        public void PrintBFSTraverse(Node<T> root)
+        public Queue<Node<T>> BFSTraverse(Node<T> root)
         {
             if (root == null)
             {
-                return;
+                return null;
             }
 
             var parentQueue = new Queue<Node<T>>();
+            var queueToBeReturned = new Queue<Node<T>>();
 
             parentQueue.Enqueue(root);
 
             while (parentQueue.Count > 0)
             {
                 var current = parentQueue.Dequeue();
-
-                // TreeProject.Node`1[System.Int32] writes this. Dont know how to fix it :/
-                Console.WriteLine(current.Value + " ");
+                queueToBeReturned.Enqueue(current);
 
                 var childQueue = new Queue<Node<T>>(current.Children);
 
@@ -63,7 +62,8 @@
                     parentQueue.Enqueue(child);
                 }
             }
-            
+
+            return queueToBeReturned;
         }
     }
 }

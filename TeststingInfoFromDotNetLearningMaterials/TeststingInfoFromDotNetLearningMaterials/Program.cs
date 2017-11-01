@@ -16,19 +16,27 @@
 
         public static void Main()
         {
+            HardCodedNonBinaryTree();
         }
 
         private static void HardCodedNonBinaryTree()
         {
-            Tree<Node<int>> tree = new Tree<Node<int>>(new Node<int>(7),
-                                                                    new Tree<Node<int>>(new Node<int>(5),
-                                                                        new Tree<Node<int>>(new Node<int>(3),
-                                                                            new Tree<Node<int>>(new Node<int>(1)),
-                                                                            new Tree<Node<int>>(new Node<int>(4))),
-                                                                        new Tree<Node<int>>(new Node<int>(6)),
-                                                                    new Tree<Node<int>>(new Node<int>(12))));
+            Tree<int> tree = new Tree<int>(7,
+                                    new Tree<int>(19,
+                                        new Tree<int>(1),  
+                                        new Tree<int>(12),
+                                        new Tree<int>(31)),
+                                    new Tree<int>(21),
+                                    new Tree<int>(14,
+                                        new Tree<int>(23),  
+                                        new Tree<int>(6)));
 
-            tree.PrintBFSTraverse(tree.Root);
+            Queue<Node<int>> nodes = tree.BFSTraverse(tree.Root);
+
+            foreach (var node in nodes)
+            {
+                Console.WriteLine(node.Value);
+            }
         }
 
         private static void HardCodedHashTable()
