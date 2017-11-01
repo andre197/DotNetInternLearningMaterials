@@ -2,6 +2,7 @@
 namespace TeststingInfoFromDotNetLearningMaterials.BinaryTreeFolder
 {
     using System;
+    using System.Collections.Generic;
     using System.Text;
 
     public class BinaryTree
@@ -13,7 +14,7 @@ namespace TeststingInfoFromDotNetLearningMaterials.BinaryTreeFolder
                 return new Node(value);
             }
 
-            if (value > node.Value)
+            if (value < node.Value)
             {
                 node.Left = InsertNode(value, node.Left);
             }
@@ -26,6 +27,7 @@ namespace TeststingInfoFromDotNetLearningMaterials.BinaryTreeFolder
 
         }
 
+       
         public void TraverseDFS(Node tree, string spaces)
         {
             if (tree == null)
@@ -37,6 +39,30 @@ namespace TeststingInfoFromDotNetLearningMaterials.BinaryTreeFolder
 
             TraverseDFS(tree.Left, spaces + "    ");
             TraverseDFS(tree.Right, spaces + "     ");
+        }
+
+        public int SearchByValue(int value, Node node)
+        {
+            int level = 0;
+
+            if (value == node.Value)
+            {
+                return level;
+            }
+
+            level++;
+
+            if (value < node.Value)
+            {
+                return level + SearchByValue(value, node.Left);
+            }
+
+            if (value > node.Value)
+            {
+                return level + SearchByValue(value, node.Right);
+            }
+
+            throw new InvalidOperationException("The searched value was not found in the current tree");
         }
     }
 }

@@ -5,30 +5,60 @@
     using ImplementationOfGraphs;
     using System;
     using System.Collections.Generic;
+    using TreeProject;
 
     public class Program
     {
+        // To create vertex connection using matrix use the CreateMatrixVertex class in ImplementationOfGraphs folder
+        // To create a HashTable and check if it works use the HardCodedHashTable method below
+        // To create a tree and search in it use the CreateATree method below
+        // To create a non binary tree use the method HardCodedNonBinaryTree below
 
         public static void Main()
         {
+        }
 
+        private static void HardCodedNonBinaryTree()
+        {
+            Tree<Node<int>> tree = new Tree<Node<int>>(new Node<int>(7),
+                                                                    new Tree<Node<int>>(new Node<int>(5),
+                                                                        new Tree<Node<int>>(new Node<int>(3),
+                                                                            new Tree<Node<int>>(new Node<int>(1)),
+                                                                            new Tree<Node<int>>(new Node<int>(4))),
+                                                                        new Tree<Node<int>>(new Node<int>(6)),
+                                                                    new Tree<Node<int>>(new Node<int>(12))));
+
+            tree.PrintBFSTraverse(tree.Root);
         }
 
         private static void HardCodedHashTable()
         {
             CustomHashTable<string, string> phoneBook = new CustomHashTable<string, string>();
 
-            phoneBook.Add("Ivan", "0885");
-            phoneBook.Add("Petko", "0839");
-            phoneBook.Add("Gosho", "1234");
+            // It is 17 in order to check if the phonebook resizes itself after reaching its initial lenght
+            const int loopTo = 17;
 
-            var searchedItem = phoneBook.Search("Gosho");
+            for (int i = 0; i < loopTo; i++)
+            {
+                phoneBook.Add($"Ivan{i}", $"0885{i}");
+
+                // Checks if the phonebook resized itself after adding the 17th element
+                if (i == loopTo - 1)
+                {
+                    Console.WriteLine(phoneBook.Size);
+                }
+            }
+
+            var searchedItem = phoneBook.Search("Ivan5");
 
             Console.WriteLine(searchedItem.Key + " - " + searchedItem.Value);
 
-            phoneBook.Remove(new KeyValuePair<string, string>("Gosho", "1234"));
+            phoneBook.Remove(new KeyValuePair<string, string>("Ivan5", "12345"));
+
+            // Checks if the phonebook resized itself after removing the 17th element
+            Console.WriteLine(phoneBook.Size);
         }
-        
+
         private static void CreateATree()
         {
             BinaryTree tree = new BinaryTree();
@@ -42,7 +72,28 @@
                 node = tree.InsertNode(rnd.Next(1000), node);
             }
 
-            tree.TraverseDFS(node , "    ");
+            tree.TraverseDFS(node, "    ");
+
+            while (true)
+            {
+                try
+                {
+                    string input = Console.ReadLine();
+
+                    if (!int.TryParse(input, out int itemToSearch))
+                    {
+                        break;
+                    }
+
+                    int pointAtWhichTheItemWasFound = tree.SearchByValue(itemToSearch, node);
+
+                    Console.WriteLine(pointAtWhichTheItemWasFound);
+                }
+                catch (InvalidOperationException ioe)
+                {
+                    Console.WriteLine(ioe.Message);
+                }
+            }
         }
     }
 }
