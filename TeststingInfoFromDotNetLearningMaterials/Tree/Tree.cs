@@ -32,7 +32,7 @@
 
             Console.WriteLine(spaces + root.Value);
 
-            foreach (var child in this.root.Children)
+            foreach (var child in root.Children)
             {
                 PrintDFSTraverse(child, spaces + "  ");
             }
@@ -60,6 +60,34 @@
                 foreach (var child in childQueue)
                 {
                     parentQueue.Enqueue(child);
+                }
+            }
+
+            return queueToBeReturned;
+        }
+
+        public Stack<Node<T>>  DFSTraverseWithStack(Node<T> node)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+
+            var parentQueue = new Stack<Node<T>>();
+            var queueToBeReturned = new Stack<Node<T>>();
+
+            parentQueue.Push(root);
+
+            while (parentQueue.Count > 0)
+            {
+                var current = parentQueue.Pop();
+                queueToBeReturned.Push(current);
+
+                var childQueue = new Queue<Node<T>>(current.Children);
+
+                foreach (var child in childQueue)
+                {
+                    parentQueue.Push(child);
                 }
             }
 

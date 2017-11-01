@@ -16,7 +16,7 @@
 
         public static void Main()
         {
-            HardCodedNonBinaryTree();
+
         }
 
         private static void HardCodedNonBinaryTree()
@@ -31,8 +31,30 @@
                                         new Tree<int>(23),  
                                         new Tree<int>(6)));
 
+            Console.WriteLine("--------------BFS traverse--------------");
+            Console.WriteLine();
+
             Queue<Node<int>> nodes = tree.BFSTraverse(tree.Root);
 
+            PrintNodes(nodes);
+
+            Console.WriteLine();
+            Console.WriteLine("--------------DFS traverse--------------");
+            Console.WriteLine();
+
+            tree.PrintDFSTraverse(tree.Root, "  ");
+
+            Console.WriteLine();
+            Console.WriteLine("--------------DFS traverse with stack--------------");
+            Console.WriteLine();
+
+            Stack<Node<int>> moreNodes = tree.DFSTraverseWithStack(tree.Root);
+
+            PrintNodes(moreNodes);
+        }
+
+        private static void PrintNodes(IEnumerable<Node<int>> nodes)
+        {
             foreach (var node in nodes)
             {
                 Console.WriteLine(node.Value);
