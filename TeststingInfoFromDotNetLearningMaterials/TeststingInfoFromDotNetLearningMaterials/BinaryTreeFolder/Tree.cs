@@ -27,18 +27,18 @@ namespace TeststingInfoFromDotNetLearningMaterials.BinaryTreeFolder
 
         }
 
-       
-        public void TraverseDFS(Node tree, string spaces)
+
+        public void TraverseDFS(Node tree, string spaces, string lOrR = "")
         {
             if (tree == null)
             {
                 return;
             }
 
-            Console.WriteLine(spaces + tree.Value.ToString());
+            Console.WriteLine($"{spaces}|{tree.Value.ToString()}{lOrR}|" );
 
-            TraverseDFS(tree.Left, spaces + "    ");
-            TraverseDFS(tree.Right, spaces + "     ");
+            TraverseDFS(tree.Right, spaces + "    ", "R");
+            TraverseDFS(tree.Left, spaces + "    ","L");
         }
 
         public int SearchByValue(int value, Node node)

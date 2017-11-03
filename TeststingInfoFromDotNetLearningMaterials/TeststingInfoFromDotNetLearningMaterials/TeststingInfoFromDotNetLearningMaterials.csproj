@@ -6,6 +6,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\MergeSortProject\MergeSortProject.csproj" />
     <ProjectReference Include="..\Tree\TreeProject.csproj" />
   </ItemGroup>
 

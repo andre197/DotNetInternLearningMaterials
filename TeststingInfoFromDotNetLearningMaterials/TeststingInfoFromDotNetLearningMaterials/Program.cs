@@ -2,10 +2,12 @@
 {
     using BinaryTreeFolder;
     using HashTable;
-    using ImplementationOfGraphs;
+    using MergeSortProject;
     using System;
     using System.Collections.Generic;
+    using System.Linq;
     using TreeProject;
+    using ImplementationOfGraphs;
 
     public class Program
     {
@@ -13,22 +15,38 @@
         // To create a HashTable and check if it works use the HardCodedHashTable method below
         // To create a tree and search in it use the CreateATree method below
         // To create a non binary tree use the method HardCodedNonBinaryTree below
+        // To merge sort use the MergeSort method below, it expects list of elements to search and if it is TopUp or BottomDown true or false value. (TopDownMergeSort/BottomUpMergeSort it is generic)
 
         public static void Main()
         {
+            CreateMatrix matrix = new CreateMatrix();
 
+            matrix.CreateMatrixVertex("abcde");
         }
 
+        private static void MergeSort<T>(IList<T> collection, bool isTopDown = true)
+            where T : IComparable
+        {
+            MergeSorter sorter = new MergeSorter();
+
+            var returned = sorter.SplitThenSort(collection, isTopDown);
+
+            PrintCollection(returned);
+        }
+
+        /// <summary>
+        /// ajksdhkjashdasd
+        /// </summary>
         private static void HardCodedNonBinaryTree()
         {
             Tree<int> tree = new Tree<int>(7,
                                     new Tree<int>(19,
-                                        new Tree<int>(1),  
+                                        new Tree<int>(1),
                                         new Tree<int>(12),
                                         new Tree<int>(31)),
                                     new Tree<int>(21),
                                     new Tree<int>(14,
-                                        new Tree<int>(23),  
+                                        new Tree<int>(23),
                                         new Tree<int>(6)));
 
             Console.WriteLine("--------------BFS traverse--------------");
@@ -36,7 +54,7 @@
 
             Queue<Node<int>> nodes = tree.BFSTraverse(tree.Root);
 
-            PrintNodes(nodes);
+            PrintCollection(nodes.Select(n => n.Value));
 
             Console.WriteLine();
             Console.WriteLine("--------------DFS traverse--------------");
@@ -50,14 +68,19 @@
 
             Stack<Node<int>> moreNodes = tree.DFSTraverseWithStack(tree.Root);
 
-            PrintNodes(moreNodes);
+            PrintCollection(moreNodes.Select(n => n.Value));
         }
 
-        private static void PrintNodes(IEnumerable<Node<int>> nodes)
+        /// <summary>
+        /// asdasdasd
+        /// </summary>
+        /// <typeparam name="T"> </typeparam>
+        /// <param name="collection"> The collection to be printed</param>
+        private static void PrintCollection<T>(IEnumerable<T> collection)
         {
-            foreach (var node in nodes)
+            foreach (var item in collection)
             {
-                Console.WriteLine(node.Value);
+                Console.WriteLine(item);
             }
         }
 
