@@ -3,6 +3,7 @@
     using BinaryTreeFolder;
     using HashTable;
     using MergeSortProject;
+    using Graph;
     using GraphsProject;
     using System;
     using System.Collections.Generic;
@@ -19,6 +20,23 @@
 
         public static void Main()
         {
+            SimpleGraph graph = new SimpleGraph();
+
+            graph.AddVertex("a", 1);
+            graph.AddVertex("b", 2);
+            graph.AddVertex("c", 3);
+            graph.AddVertex("d", 4);
+
+            graph.AddEdge("a", "b");
+            graph.AddEdge("a", "c");
+            graph.AddEdge("b", "a");
+            graph.AddEdge("b", "c");
+            graph.AddEdge("c", "a");
+            graph.AddEdge("c", "b");
+            graph.AddEdge("c", "d");
+            graph.AddEdge("d", "c");
+
+           var a = graph.Verteces;
         }
 
         /// <summary>

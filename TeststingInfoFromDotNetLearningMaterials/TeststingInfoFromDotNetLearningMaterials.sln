@@ -1,19 +1,19 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.27004.2005
+VisualStudioVersion = 15.0.27004.2002
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TeststingInfoFromDotNetLearningMaterials", "TeststingInfoFromDotNetLearningMaterials\TeststingInfoFromDotNetLearningMaterials.csproj", "{96BCB51B-CB42-4B16-80A7-3FE1DEF62C50}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TreeProject", "Tree\TreeProject.csproj", "{89E79ED0-9331-4577-8AC0-97120C40DA80}"
 EndProject
-<<<<<<< HEAD
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AvlTreeProject", "AvlTreeProject\AvlTreeProject.csproj", "{F85F6935-7F52-4C91-AB38-A3C51E4D7D6F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AvlTreeProject", "AvlTreeProject\AvlTreeProject.csproj", "{F85F6935-7F52-4C91-AB38-A3C51E4D7D6F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MergeSortProject", "MergeSortProject\MergeSortProject.csproj", "{BAB449BF-D96D-4360-9225-84D97828562A}"
-=======
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphsProject", "GraphsProject\GraphsProject.csproj", "{396ACD9F-911B-4BC3-8187-DAB6143FA0E9}"
->>>>>>> refs/remotes/origin/master
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeSortProject", "MergeSortProject\MergeSortProject.csproj", "{BAB449BF-D96D-4360-9225-84D97828562A}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphsProject", "GraphsProject\GraphsProject.csproj", "{396ACD9F-911B-4BC3-8187-DAB6143FA0E9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,7 +29,6 @@ Global
 		{89E79ED0-9331-4577-8AC0-97120C40DA80}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89E79ED0-9331-4577-8AC0-97120C40DA80}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89E79ED0-9331-4577-8AC0-97120C40DA80}.Release|Any CPU.Build.0 = Release|Any CPU
-<<<<<<< HEAD
 		{F85F6935-7F52-4C91-AB38-A3C51E4D7D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{F85F6935-7F52-4C91-AB38-A3C51E4D7D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F85F6935-7F52-4C91-AB38-A3C51E4D7D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -38,12 +37,14 @@ Global
 		{BAB449BF-D96D-4360-9225-84D97828562A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAB449BF-D96D-4360-9225-84D97828562A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAB449BF-D96D-4360-9225-84D97828562A}.Release|Any CPU.Build.0 = Release|Any CPU
-=======
 		{396ACD9F-911B-4BC3-8187-DAB6143FA0E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{396ACD9F-911B-4BC3-8187-DAB6143FA0E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{396ACD9F-911B-4BC3-8187-DAB6143FA0E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{396ACD9F-911B-4BC3-8187-DAB6143FA0E9}.Release|Any CPU.Build.0 = Release|Any CPU
->>>>>>> refs/remotes/origin/master
+		{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
