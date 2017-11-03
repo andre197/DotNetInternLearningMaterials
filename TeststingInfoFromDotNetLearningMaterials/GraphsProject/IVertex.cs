@@ -1,4 +1,4 @@
-﻿namespace TeststingInfoFromDotNetLearningMaterials.ImplementationOfGraphs
+﻿namespace GraphsProject
 {
     public interface IVertex<T>
     {

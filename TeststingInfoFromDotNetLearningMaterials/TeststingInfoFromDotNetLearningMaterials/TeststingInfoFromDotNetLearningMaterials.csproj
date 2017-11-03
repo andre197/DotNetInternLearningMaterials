@@ -6,7 +6,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
     <ProjectReference Include="..\MergeSortProject\MergeSortProject.csproj" />
+=======
+    <ProjectReference Include="..\GraphsProject\GraphsProject.csproj" />
+>>>>>>> refs/remotes/origin/master
     <ProjectReference Include="..\Tree\TreeProject.csproj" />
   </ItemGroup>
 

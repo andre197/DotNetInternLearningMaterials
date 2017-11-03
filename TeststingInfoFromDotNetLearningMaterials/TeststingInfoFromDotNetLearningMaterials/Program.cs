@@ -2,7 +2,11 @@
 {
     using BinaryTreeFolder;
     using HashTable;
+<<<<<<< HEAD
     using MergeSortProject;
+=======
+    using GraphsProject;
+>>>>>>> refs/remotes/origin/master
     using System;
     using System.Collections.Generic;
     using System.Linq;
@@ -11,7 +15,7 @@
 
     public class Program
     {
-        // To create vertex connection using matrix use the CreateMatrixVertex class in ImplementationOfGraphs folder
+        // To create vertex connection using matrix use the MatrixCreator method which expects string
         // To create a HashTable and check if it works use the HardCodedHashTable method below
         // To create a tree and search in it use the CreateATree method below
         // To create a non binary tree use the method HardCodedNonBinaryTree below
@@ -32,6 +36,13 @@
             var returned = sorter.SplitThenSort(collection, isTopDown);
 
             PrintCollection(returned);
+        }
+
+        private static void MatrixCreator(string vertecies)
+        {
+            CreateMatrix matrix = new CreateMatrix();
+
+            matrix.CreateMatrixVertex(vertecies);
         }
 
         /// <summary>

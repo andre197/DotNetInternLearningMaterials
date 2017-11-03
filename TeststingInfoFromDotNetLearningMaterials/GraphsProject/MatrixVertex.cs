@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace TeststingInfoFromDotNetLearningMaterials.ImplementationOfGraphs.AdjencyMatrixImplementation
+﻿namespace GraphsProject
 {
     public class MatrixVertex<T> : IVertex<T>
     {
