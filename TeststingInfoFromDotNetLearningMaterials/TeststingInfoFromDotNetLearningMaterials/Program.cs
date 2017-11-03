@@ -2,16 +2,12 @@
 {
     using BinaryTreeFolder;
     using HashTable;
-<<<<<<< HEAD
     using MergeSortProject;
-=======
     using GraphsProject;
->>>>>>> refs/remotes/origin/master
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using TreeProject;
-    using ImplementationOfGraphs;
 
     public class Program
     {
@@ -23,11 +19,14 @@
 
         public static void Main()
         {
-            CreateMatrix matrix = new CreateMatrix();
-
-            matrix.CreateMatrixVertex("abcde");
         }
 
+        /// <summary>
+        /// Merge sorts list of elements. Can be chosen if topDown or BottomUp by passing true or false value as argument to the method. By default it is topDown
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="collection">List of elements</param>
+        /// <param name="isTopDown">true or false whether is top down or bottom up</param>
         private static void MergeSort<T>(IList<T> collection, bool isTopDown = true)
             where T : IComparable
         {
@@ -38,6 +37,10 @@
             PrintCollection(returned);
         }
 
+        /// <summary>
+        /// Creates adjacency matrix from the passed string by splitting it to char array
+        /// </summary>
+        /// <param name="vertecies">string which will be converted to char array</param>
         private static void MatrixCreator(string vertecies)
         {
             CreateMatrix matrix = new CreateMatrix();
@@ -46,7 +49,7 @@
         }
 
         /// <summary>
-        /// ajksdhkjashdasd
+        /// Creates simple tree, makes DFS and BFS traverse and prints them on the console 
         /// </summary>
         private static void HardCodedNonBinaryTree()
         {
@@ -83,10 +86,10 @@
         }
 
         /// <summary>
-        /// asdasdasd
+        /// Prints collection of elements
         /// </summary>
         /// <typeparam name="T"> </typeparam>
-        /// <param name="collection"> The collection to be printed</param>
+        /// <param name="collection">Collection of elements</param>
         private static void PrintCollection<T>(IEnumerable<T> collection)
         {
             foreach (var item in collection)
@@ -95,6 +98,9 @@
             }
         }
 
+        /// <summary>
+        /// Creates a phonebook HashTable. It is Hard coded for easier testing
+        /// </summary>
         private static void HardCodedHashTable()
         {
             CustomHashTable<string, string> phoneBook = new CustomHashTable<string, string>();
@@ -102,9 +108,14 @@
             // It is 17 in order to check if the phonebook resizes itself after reaching its initial lenght
             const int loopTo = 17;
 
+            string tableKey = "Ivan{0}";
+            string tableValue = "0885{1}";
+
             for (int i = 0; i < loopTo; i++)
             {
-                phoneBook.Add($"Ivan{i}", $"0885{i}");
+                AddElementToTheHashTable(string.Format(tableKey, i), string.Format(tableValue, i), phoneBook);
+
+                Console.WriteLine($"Added: {string.Format(tableKey, i)} - {string.Format(tableValue, i)}");
 
                 // Checks if the phonebook resized itself after adding the 17th element
                 if (i == loopTo - 1)
@@ -121,6 +132,68 @@
 
             // Checks if the phonebook resized itself after removing the 17th element
             Console.WriteLine(phoneBook.Size);
+
+            while (true)
+            {
+                string input = Console.ReadLine();
+
+                try
+                {
+                    if (input == "Add" || input == "Remove")
+                    {
+                        Console.WriteLine("Enter key value pair separated by space:");
+                        string[] tokens = Console.ReadLine().Split(" ", StringSplitOptions.RemoveEmptyEntries);
+
+                        if (tokens.Length != 2)
+                        {
+                            throw new InvalidOperationException("Invalid arguments count. Arguments passe count should be 2");
+                        }
+
+                        if (input == "Add")
+                        {
+                            AddElementToTheHashTable(tokens[0], tokens[1], phoneBook);
+                        }
+                        else
+                        {
+                            RemoveElementsFromTheHashTable(tokens[0], tokens[1], phoneBook);
+
+                            Console.WriteLine("Element removed successfully");
+                        }
+                    }
+                    else if (input == "Search")
+                    {
+                        Console.WriteLine("Enter key to be found:");
+                        string key = Console.ReadLine();
+
+                        if (key.Contains(" "))
+                        {
+                            throw new InvalidOperationException("Cannot search more than one argument at a time");
+                        }
+
+                        var result = phoneBook.Search(key);
+
+                        Console.WriteLine(result);
+                    }
+                    else if (input == "end")
+                    {
+                        break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                }
+            }
+        }
+
+        private static void AddElementToTheHashTable(string key, string value, CustomHashTable<string, string> phoneBook)
+        {
+            phoneBook.Add(key, value);
+        }
+
+        private static void RemoveElementsFromTheHashTable(string key, string value, CustomHashTable<string, string> phoneBook)
+        {
+            phoneBook.Remove(new KeyValuePair<string, string>(key, value));
         }
 
         private static void CreateATree()
