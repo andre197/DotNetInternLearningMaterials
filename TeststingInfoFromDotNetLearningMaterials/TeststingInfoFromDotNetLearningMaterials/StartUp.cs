@@ -5,38 +5,87 @@
     using MergeSortProject;
     using Graph;
     using GraphsProject;
+    using RLEAlgorithm;
     using System;
     using System.Collections.Generic;
     using System.Linq;
     using TreeProject;
 
-    public class Program
+    public class StartUp
     {
         // To create vertex connection using matrix use the MatrixCreator method which expects string
         // To create a HashTable and check if it works use the HardCodedHashTable method below
         // To create a tree and search in it use the CreateATree method below
         // To create a non binary tree use the method HardCodedNonBinaryTree below
+        // The graph is hardcoded in order to be tested easier. it expects string a letter between a-f to find the shortest path from this point to any available point on the graph
         // To merge sort use the MergeSort method below, it expects list of elements to search and if it is TopUp or BottomDown true or false value. (TopDownMergeSort/BottomUpMergeSort it is generic)
 
         public static void Main()
         {
+
+        }
+
+        private static void SimpleGraphTest(string fromPoint)
+        {
+            Vertex a = new Vertex()
+            {
+                Name = "a"
+            };
+
+            Vertex b = new Vertex()
+            {
+                Name = "b"
+            };
+
+            Vertex c = new Vertex()
+            {
+                Name = "c"
+            };
+
+            Vertex d = new Vertex()
+            {
+                Name = "d"
+            };
+
+            Vertex e = new Vertex()
+            {
+                Name = "e"
+            };
+
+            Vertex f = new Vertex()
+            {
+                Name = "f"
+            };
+
             SimpleGraph graph = new SimpleGraph();
 
-            graph.AddVertex("a", 1);
-            graph.AddVertex("b", 2);
-            graph.AddVertex("c", 3);
-            graph.AddVertex("d", 4);
+            graph.AddVertex(a);
+            graph.AddVertex(b);
+            graph.AddVertex(c);
+            graph.AddVertex(d);
+            graph.AddVertex(e);
+            graph.AddVertex(f);
 
-            graph.AddEdge("a", "b");
-            graph.AddEdge("a", "c");
-            graph.AddEdge("b", "a");
-            graph.AddEdge("b", "c");
-            graph.AddEdge("c", "a");
-            graph.AddEdge("c", "b");
-            graph.AddEdge("c", "d");
-            graph.AddEdge("d", "c");
+            graph.AddEdge("a", "b", 2);
+            graph.AddEdge("a", "f", 4);
+            graph.AddEdge("b", "c", 3);
+            graph.AddEdge("d", "c", 3);
+            graph.AddEdge("e", "d", 1);
+            graph.AddEdge("f", "e", 2);
 
-           var a = graph.Verteces;
+            var smt = graph.FindShortestPaths(fromPoint);
+
+            foreach (var item in smt)
+            {
+                if (item.Value == int.MaxValue)
+                {
+                    Console.WriteLine($"No available path was found between {fromPoint} and {item.Key}");
+                }
+                else
+                {
+                    Console.WriteLine($"shortest path to vertex {item.Key} from vertex {fromPoint} is {item.Value}");
+                }
+            }
         }
 
         /// <summary>

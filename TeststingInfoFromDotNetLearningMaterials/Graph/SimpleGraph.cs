@@ -6,26 +6,29 @@
     {
         public List<Vertex> Verteces { get; set; } = new List<Vertex>();
 
-        public void AddVertex(string name, int weight)
+        public Dictionary<string,int> FindShortestPaths(string startingVertexName)
         {
-            Vertex vertex = new Vertex()
-            {
-                Name = name,
-                Weigtht = weight
-            };
+            Vertex vertex = this.Verteces.Find(v => v.Name == startingVertexName);
 
+            Djikstra djikstra = new Djikstra();
+
+            Dictionary<string, int> dic = djikstra.FindPaths(vertex, this.Verteces);
+
+            return dic;
+        }
+
+        public void AddVertex(Vertex vertex)
+        {
             this.Verteces.Add(vertex);
         }
 
-        public void AddEdge(string nameVertexFrom, string nameVertexTo)
+        public void AddEdge(string nameVertexFrom, string nameVertexTo, int weight)
         {
             this.Verteces
                 .Find(v => v.Name == nameVertexFrom)
-                .Edges
-                .Add(this.Verteces
-                    .Find(v => v.Name == nameVertexTo));
+                .AddEdge(this.Verteces
+                    .Find(v => v.Name == nameVertexTo), weight);
         }
-
 
     }
 }

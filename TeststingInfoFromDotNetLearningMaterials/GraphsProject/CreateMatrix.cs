@@ -29,17 +29,6 @@
 
                     Console.WriteLine(checker.CheckIfAllRoomsAreAccessibleUsingDFS(this.vertex.Data));
                 }
-                else if (input[0] == "find")
-                {
-                    string from = Console.ReadLine();
-                    string to = Console.ReadLine();
-
-                    DijkstrasAlgorithmImplementation dai = new DijkstrasAlgorithmImplementation();
-
-                    string result = dai.FindShortestPathToVertex(this.vertex.Data, from, to, vertices);
-
-                    Console.WriteLine(result);
-                }
                 else
                 {
                     int value = 0;

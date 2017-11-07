@@ -13,7 +13,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MergeSortProject", "MergeSo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GraphsProject", "GraphsProject\GraphsProject.csproj", "{396ACD9F-911B-4BC3-8187-DAB6143FA0E9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Graph", "Graph\Graph.csproj", "{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RLEAlgorithm", "RLEAlgorithm\RLEAlgorithm.csproj", "{DEE680DE-2861-4B80-99D8-3AB11614EB3B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,6 +47,10 @@ Global
 		{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29BF7F9B-7C9A-4698-B2B4-8651C5C026A7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEE680DE-2861-4B80-99D8-3AB11614EB3B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEE680DE-2861-4B80-99D8-3AB11614EB3B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEE680DE-2861-4B80-99D8-3AB11614EB3B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEE680DE-2861-4B80-99D8-3AB11614EB3B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
